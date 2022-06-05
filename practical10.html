@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html form</title>
+    <style>
+        .name{
+            width: 14rem;
+            height: 1rem;
+        }
+        .mail{
+            width: 14rem;
+            height: 1rem;
+            
+        }
+        .sdate{
+            width: 14rem;
+            height: 1.3rem;
+
+        }
+        .edate{
+            width: 14rem;
+            height: 1.3rem;
+        }
+        .box{
+            border:2px solid red;
+            border-radius: 3rem;
+            background-color: lightblue;
+            height: fit-content;
+            width: fit-content;
+            padding: 2rem;
+            box-shadow: 2rem 2rem rgb(49, 46, 46)
+        }
+        .shadow-more{
+            text-shadow: 2px 2px gray;
+            color: red;
+            font-size: 2rem;
+            
+
+        }
+        #demo{
+            padding: 10px;
+            color: red;
+            background-color: yellow;
+            visibility: hidden;
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body style="background-color: lightslategray;">
+    <section class="box" id="Box" onmouseover="Hovermouse(this)" onmouseout="outmouse(this)" onmousedown="downmouse(this)">
+        <h1 class="shadow-more">Advertising Estimate</h1>
+        <p id="demo"></p>
+        <form action="index.html" method="post">
+            <p>Name/ Company Name<sup style="color: red;">*</sup></p>
+            <input type="text" onclick="showname()" id="fname" required="please enter your name" class="name" name="fname" placeholder="Enter your name">
+            <p>Email<sup style="color: red;">*</sup></p>
+            <input type="email" onmouseover="showEmail(this)" id="Email" required class="mail" name="mail" >
+            <p>Ad Start Date<sup style="color: red;">*</sup></p>
+            <input type="date" required class="sdate" name="Startdate">
+            <p>Ad End Date<sup style="color: red;">*</sup></p>
+            <input type="date" required class="Edate" name="enddate">
+            <p>Advertising Size (pixels) <sup style="color: red;">*</sup></p>
+            <input type="radio" id="option1" name="option1" value="option1">
+            <label for="option1">Option1</label>
+            <br>
+            <input type="radio" id="option2" name="option1" value="option2">
+            <label for="option2">Option2</label>
+            <br>
+            <input type="radio" id="option3" name="option1" value="option3">
+            <label for="option3">Option3</label>
+            <p>Which sites would you like to advertise on? <sup style="color: red;">*</sup></p>
+            <input type="checkbox" name="option1" id="=option1" value="option1">
+            <label for="option1">Option1</label>
+            <br>
+            <input type="checkbox" name="option2" id="=option2" value="option2">
+            <label for="option2">Option2</label>
+            <br>
+            <input type="checkbox" name="option3" id="=option3" value="option3">
+            <label for="option3">Option3</label>
+            <p>Website to be advertised<sup style="color: red;">*</sup></p>
+            <input type="text" required class="website" name="website">
+            <p>Comments</p>
+            <textarea name="comments" id="one" cols="40" rows="6"></textarea>
+            <br>
+            <button type="submit" onclick="myFunction()" onmouseover="mOver(this)" onmouseout="mOut(this)">submit</button>
+            
+
+        </form>
+    </section>
+    
+
+    <script>
+        function myFunction(){
+            let name = document.getElementById("fname").value;
+            let email = document.getElementById("Email").value;
+            let text;
+            if(name == "" || name == NaN){
+                document.getElementById("demo").style.visibility = "visible";
+                document.getElementById("demo").style.display = "block";
+                text = "you not enter your name";
+                alert(text);
+
+            }
+            else if(email==NaN || email==""){
+                document.getElementById("demo").style.visibility = "visible";
+                document.getElementById("demo").style.display = "block";
+                text = "you not enter your E-mail id";
+                alert(text);
+            }
+            else{
+                text = NaN;
+            }
+            document.getElementById("demo").innerHTML = text;
+            
+            
+        }
+        function mOver(obj){
+            obj.innerHTML = "<i>Click on me</i>";
+            obj.style.color = "green";
+            obj.style.padding = "3px";
+        }
+        function mOut(obj){
+            obj.innerHTML = "<i>Click me</i>";
+            
+        }
+        function showname()
+        {
+            let getName = prompt("enter your name here");
+            document.getElementById("fname").value = getName;
+        }
+        function showEmail(obj)
+        {
+            obj.setAttribute("placeholder","Enter your email here");
+
+        }
+        function Hovermouse(obj)
+        {
+            obj.style.backgroundColor = "pink";
+        }
+        function outmouse(obj)
+        {
+            obj.style.backgroundColor = "lightblue";
+        }
+        function downmouse(obj)
+        {
+            obj.style.backgroundColor = "violet";
+            obj.style.color = "indigo"; 
+        }
+        
+        
+
+    </script>
+    
+</body>
+</html>
